@@ -1,0 +1,55 @@
+<tw-storydata name="Culinary Meat Fabrication" startnode="2" creator="Twine" creator-version="2.1.0" ifid="81AED467-C945-4D19-9AD5-90D3F8302C09" format="Harlowe" format-version="2.0.0" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+</script><tw-passagedata pid="1" name="StoryInit" tags="" position="412,200">&lt;&lt;set $tweets to [&quot;Hello&quot;,&quot;Goodbye&quot;,&quot;What day is it&quot;]&gt;&gt;
+&lt;&lt;set $readState to [false,false,false]&gt;&gt;</tw-passagedata><tw-passagedata pid="2" name="Untitled Passage" tags="" position="557,218">&lt;&lt;if $readState[0] is false&gt;&gt;
+$tweets[0]
+&lt;&lt;set $readState[0] to  true&gt;&gt;
+&lt;&lt;elseif $readState[1] is false&gt;&gt;
+$tweets[1]
+&lt;&lt;set $readState[1] to  true&gt;&gt;
+&lt;&lt;elseif $readState[2] is false&gt;&gt;
+$tweets[2]
+&lt;&lt;set $readState[2] to  true&gt;&gt;
+&lt;&lt;else&gt;&gt;
+No new tweets.
+&lt;&lt;/if&gt;&gt;
+[[Refresh the page!|array]]</tw-passagedata><tw-passagedata pid="3" name="array" tags="" position="557,368">Double-click this passage to edit it.</tw-passagedata><tw-passagedata pid="4" name="loops" tags="" position="302,200">&lt;&lt;set $a to [true,true,true]&gt;&gt;
+&lt;&lt;print $a.length&gt;&gt;
+
+&lt;&lt;for $index = 0; $index &lt; 5; $index = $index+1&gt;&gt;
+	&lt;&lt;print $index&gt;&gt;
+&lt;&lt;/for&gt;&gt;
+
+&lt;&lt;for $i = 0; $i &lt; 2; $i++&gt;&gt;
+	&lt;&lt;print $i&gt;&gt;
+&lt;&lt;/for&gt;&gt;
+&lt;&lt;print &quot;Loop is over!&quot;&gt;&gt;</tw-passagedata><tw-passagedata pid="5" name="array with loop" tags="" position="192,200">/* This code will show one unread tweet and then mark it as read - functionally equivalent to the example in the Arrays section */
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;for $index = 0; $index &lt; $tweets.length; $index++&gt;&gt;
+	&lt;&lt;if $readState[$index] is false&gt;&gt;
+		&lt;&lt;set $readState[$index] to true&gt;&gt;
+		&lt;&lt;print $tweets[$index]&gt;&gt;
+/* Break statement will exit the for loop so no more tweets are shown - the game will jump to right after the for macro*/		
+		&lt;&lt;break&gt;&gt;
+	&lt;&lt;/if&gt;&gt;
+/* Only reach here if no new tweets were shown! */	
+	&lt;&lt;if $index is $tweets.length - 1&gt;&gt;
+		No new tweets.
+	&lt;&lt;/if&gt;&gt;
+&lt;&lt;/for&gt;&gt;
+[[refresh the page|array with loop]]
+&lt;&lt;/nobr&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="tea array" tags="" position="809,193">If we don&#x27;t have all the ingredients, then display &quot;tea not done&quot;
+Otherwise, display &quot;tea is done!&quot;
+&lt;&lt;nobr&gt;&gt;
+&lt;&lt;set $teaState[0] to true&gt;&gt;
+&lt;&lt;set $teaState[1] to false&gt;&gt;
+&lt;&lt;set $teaState[2] to false&gt;&gt;
+
+&lt;&lt;for $i = 0; $i &lt; $teaState.length; $i++&gt;&gt;
+
+&lt;&lt;set $teaIsDone to true&gt;&gt;
+</tw-passagedata></tw-storydata>

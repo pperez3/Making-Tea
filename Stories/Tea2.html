@@ -1,0 +1,173 @@
+<tw-storydata name="Tea2" startnode="6" creator="Twine" creator-version="2.1.0" ifid="AFB1F190-2F1C-464C-9BC0-1189C2EF9E9C" format="SugarCube" format-version="2.12.1" options="" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">body {
+	background-color: white;
+  	color:dimgrey;
+  	font-family: Futura,Impact,Helvetica,sans-serif;
+  	font-size:12;
+}
+#story{
+  margin-left:3.5em;
+}
+a {
+  color:darkred;
+}
+a:hover {
+  color:crimson;
+}
+.hooray{
+  background-color: pink;
+  color: cornflowerblue;
+  font-size:200%;
+}
+#ui-bar {
+  display: none;
+}
+
+.great:hover {
+  opacity: 0;
+}
+
+.kitchen:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</style><script role="script" id="twine-user-script" type="text/twine-javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</script><tw-passagedata pid="1" name="StoryInit" tags="" position="32,21">&lt;&lt;cacheaudio &quot;flame&quot; &quot;Stories/music/Lighter.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;water&quot; &quot;Stories/music/Sink.mp3&quot;&gt;&gt;
+&lt;&lt;cacheaudio &quot;kettle&quot; &quot;Stories/music/Whistle.mp3&quot;&gt;&gt;
+
+&lt;&lt;set $fullCup = [$water, $sweetener, $tea]&gt;&gt;
+&lt;&lt;set $sweetener = { type:&quot;&quot;, amount: 0}&gt;&gt;
+&lt;&lt;set $water to false&gt;&gt;
+&lt;&lt;set $tea to false&gt;&gt;
+
+&lt;&lt;set $cookTime = 7&gt;&gt;
+&lt;&lt;set $pcFlame = 0&gt;&gt;
+&lt;&lt;set $boiled == false&gt;&gt;
+&lt;&lt;set $pcSweet == 0&gt;&gt;
+
+
+</tw-passagedata><tw-passagedata pid="2" name="WaterInKettle" tags="" position="187,69">&lt;&lt;audio kettle play&gt;&gt;
+Let&#x27;s set the stove temperature.
+
+Temp: &lt;&lt;nobr&gt;&gt; &lt;&lt;set $pcFlame to 0&gt;&gt; 
+&lt;span id=&quot;stats-str&quot;&gt;
+&lt;&lt;print $pcFlame&gt;&gt;&lt;/span&gt;
+	&lt;&lt;link &quot;[+]&quot;&gt;&gt;
+		&lt;&lt;if $pcFlame lt 5&gt;&gt;
+		&lt;&lt;set $pcFlame++&gt;&gt;
+			&lt;&lt;replace &quot;#stats-str&quot;&gt;&gt;
+				&lt;&lt;print $pcFlame&gt;&gt;
+			&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/link&gt;&gt;	
+	&lt;&lt;link &quot;[-]&quot;&gt;&gt;
+		&lt;&lt;if $pcFlame gt 0&gt;&gt;
+		&lt;&lt;set $pcFlame--&gt;&gt;
+			&lt;&lt;replace &quot;#stats-str&quot;&gt;&gt;
+				&lt;&lt;print $pcFlame&gt;&gt;
+			&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/link&gt;&gt;
+
+&lt;&lt;/nobr&gt;&gt;
+
+[[Place on fire.]]</tw-passagedata><tw-passagedata pid="3" name="Kitchen" tags="kitchen" position="61,150">&lt;span id=&quot;start&quot;&gt;Let&#x27;s make some tea!!!&lt;/span&gt;\
+&lt;&lt;timed 3s&gt;&gt;&lt;&lt;replace &quot;#start&quot;&gt;&gt;[[Add water to kettle.|WaterInKettle]]&lt;&lt;/replace&gt;&gt;&lt;&lt;/timed&gt;&gt;
+</tw-passagedata><tw-passagedata pid="4" name="add sweetener" tags="" position="362,77">Enter type of sweetener:
+&lt;&lt;textbox &quot;$sweet&quot; &quot;&quot;&gt;&gt;
+When you ready, click [[here to add|sweetener added]]
+</tw-passagedata><tw-passagedata pid="5" name="sweetener added" tags="" position="421,276">&lt;&lt;if $sweet is &quot;honey&quot;&gt;&gt;
+	&lt;&lt;set $sweetener.type to &quot;honey&quot;&gt;&gt;
+Amount: &lt;&lt;nobr&gt;&gt;
+		&lt;&lt;set $pcSweet to 0&gt;&gt; 
+&lt;span id=&quot;stats-st&quot;&gt;
+&lt;&lt;print $pcSweet&gt;&gt;&lt;/span&gt;
+	&lt;&lt;link &quot;[+]&quot;&gt;&gt;
+		&lt;&lt;if $pcSweet lt 5&gt;&gt;
+		&lt;&lt;set $pcSweet++&gt;&gt;
+			&lt;&lt;replace &quot;#stats-st&quot;&gt;&gt;
+				&lt;&lt;print $pcSweet&gt;&gt;
+			&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/link&gt;&gt;	
+	&lt;&lt;link &quot;[-]&quot;&gt;&gt;
+		&lt;&lt;if $pcSweet gt 0&gt;&gt;
+		&lt;&lt;set $pcSweet--&gt;&gt;
+			&lt;&lt;replace &quot;#stats-st&quot;&gt;&gt;
+				&lt;&lt;print $pcSweet&gt;&gt;
+			&lt;&lt;/replace&gt;&gt;
+		&lt;&lt;/if&gt;&gt;
+	&lt;&lt;/link&gt;&gt;
+	&lt;&lt;/nobr&gt;&gt;
+	&lt;&lt;nobr&gt;&gt;
+[[add tea]] 
+&lt;&lt;else&gt;&gt; &lt;&lt;goto &quot;add tea&quot;&gt;&gt;
+&lt;&lt;/if&gt;&gt;</tw-passagedata><tw-passagedata pid="6" name="TestImage" tags="" position="787,58">&lt;img src=&quot;images/EmptyCup.png&quot; alt=&quot;smiley face&quot; height=&quot;100&quot; width=&quot;100&quot; /&gt;</tw-passagedata><tw-passagedata pid="7" name="Place on fire." tags="" position="266,193">&lt;&lt;nobr&gt;&gt;
+&lt;&lt;if $pcFlame &gt;= 4&gt;&gt;
+	&lt;&lt;set $cookTime = 3&gt;&gt;
+&lt;&lt;elseif $pcFlame == 3&gt;&gt;
+	&lt;&lt;set $cookTime = 5&gt;&gt;
+&lt;&lt;elseif $pcFlame &lt;= 2&gt;&gt;
+	&lt;&lt;set $cookTime = 7&gt;&gt;
+&lt;&lt;/if&gt;&gt;
+&lt;&lt;set $seconds to $cookTime&gt;&gt;&lt;&lt;/nobr&gt;&gt;\
+Countdown: &lt;span id=&quot;countdown&quot;&gt;$seconds seconds remaining&lt;/span&gt;!\
+&lt;&lt;silently&gt;&gt;
+    &lt;&lt;repeat 1s&gt;&gt;
+        &lt;&lt;set $seconds to $seconds - 1&gt;&gt;
+        &lt;&lt;if $seconds gt 0&gt;&gt;
+            &lt;&lt;replace &quot;#countdown&quot;&gt;&gt;$seconds seconds remaining&lt;&lt;/replace&gt;&gt;
+        &lt;&lt;else&gt;&gt;
+            &lt;&lt;replace &quot;#countdown&quot;&gt;&gt;WaterBoiled&lt;&lt;/replace&gt;&gt;
+            &lt;&lt;timed 5s&gt;&gt;&lt;&lt;goto &quot;add sweetener&quot;&gt;&gt;&lt;&lt;/timed&gt;&gt;
+            &lt;&lt;stop&gt;&gt;
+        &lt;&lt;/if&gt;&gt;
+    &lt;&lt;/repeat&gt;&gt;
+&lt;&lt;/silently&gt;&gt;
+</tw-passagedata><tw-passagedata pid="8" name="add tea" tags="" position="546,116">
+[[add tea|Drink]]</tw-passagedata><tw-passagedata pid="9" name="Drink" tags="" position="645,254">&lt;&lt;if $pcSweet &gt;= 4&gt;&gt;
+	Sugar Rush  
+&lt;&lt;elseif $pcSweet == 3&gt;&gt;
+	Pretty Sweet
+&lt;&lt;elseif $pcSweet &lt;= 2&gt;&gt;
+	mmmmmmmmmmmm!!!
+&lt;&lt;/if&gt;&gt;</tw-passagedata></tw-storydata>
